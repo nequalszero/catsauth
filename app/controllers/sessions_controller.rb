@@ -1,13 +1,17 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_logged_in_status, only: [:destroy]
   def new
-    render :new
+    if current_user.nil?
+      render :new
+    else
+      redirect_to cats_url
+    end
   end
 
   def create
     user = User.find_by_credentials(
-    params[:user][:user_name],
-    params[:user][:password]
+      params[:user][:user_name],
+      params[:user][:password]
     )
 
     if user.nil?

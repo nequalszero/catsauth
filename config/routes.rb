@@ -1,4 +1,4 @@
-# Prefix Verb   URI Pattern                                Controller#Action
+# Prefix    Verb   URI Pattern                                Controller#Action
 #   cats    GET    /cats(.:format)                            cats#index
 #           POST   /cats(.:format)                            cats#create
 # new_cat   GET    /cats/new(.:format)                        cats#new
@@ -15,7 +15,7 @@
 # new_user  GET    /users/new(.:format)                       users#new
 
 # session   POST   /session(.:format)                         sessions#create
-# new_session GET    /session/new(.:format)                     sessions#new
+# new_session GET  /session/new(.:format)                     sessions#new
 #           DELETE /session(.:format)                         sessions#destroy
 #   root    GET    /                                          redirect(301, /cats)
 

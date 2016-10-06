@@ -23,7 +23,8 @@ class UsersController < ApplicationController
   end
 
   def verify_logged_in_status
-    if current_user.session_token == session[:session_token]
+    if current_user.nil?
+    elsif current_user.session_token == session[:session_token]
       flash[:error] = "You're already logged in!"
       redirect_to cats_url
     end
