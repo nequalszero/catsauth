@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<% current_user.nil? ? logged_in = false : logged_in = true  %>
+<html>
+<header>
+  <% if logged_in %>
+  <ul>
+   <li>Logged in as: <%= current_user.user_name %></li>
+   <li><%= button_to "Logout", session_url, method: :delete %></li>
+ </ul>
+ <% else %>
+  <ul>
+    <li><%= button_to "Login", new_session_url, method: :get%></li>
+ <% end %>
+  <li><%= button_to "Signup", new_user_url , method: :get %></li>
+</ul>
+</header>
+<head>
+  <title>NinetyNineCatsDay1</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
